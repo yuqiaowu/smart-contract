@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 import { useDashboardStore } from '@/hooks/useDashboardStore';
-import { exportDashboardPdf } from '@/services/report';
+import { exportDashboardReport } from '@/services/report';
 
 export default function ReportActions() {
   const { target, chain, snapshot, charts } = useDashboardStore();
@@ -15,7 +15,7 @@ export default function ReportActions() {
     }
     try {
       setStatus('exporting');
-      await exportDashboardPdf({
+      await exportDashboardReport({
         address: target,
         chain,
         snapshot,
@@ -32,7 +32,7 @@ export default function ReportActions() {
   return (
     <div style={styles.wrapper}>
       <button onClick={handleExport} style={styles.button} disabled={status === 'exporting'}>
-        {status === 'exporting' ? '导出中…' : '导出日报 PDF'}
+        {status === 'exporting' ? '导出中…' : '导出日报'}
       </button>
       {status === 'done' ? <span style={styles.hint}>导出指令已发送</span> : null}
     </div>

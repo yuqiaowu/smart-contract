@@ -1,6 +1,6 @@
 # AgentLens｜链上运营分析仪表盘
 
-MVP 目标：输入 EVM 项目合约 / 协议地址 → 输出新增、活跃、留存、交易量、资金流向等核心图表，并支持一键导出日报 / PDF。
+MVP 目标：输入 EVM 项目合约 / 协议地址 → 输出新增、活跃、留存、交易量、资金流向等核心图表，并支持一键导出日报。
 
 > 当前仓库提供了 Next.js + React 的基础脚手架、ECharts 图表组件、Zustand 状态管理和数据服务层的占位实现，便于后续快速接入 Etherscan / DefiLlama / Flipside 等数据源。
 
@@ -34,7 +34,7 @@ MVP 目标：输入 EVM 项目合约 / 协议地址 → 输出新增、活跃、
    - `services/etherscan.ts`：补充 `fetchAddressActivitySeries` / `fetchAddressVolumeSeries`，聚合日活、交易量等指标；
    - `services/defillama.ts`：根据协议 slug 获取 TVL；
    - `services/dashboard.ts`：替换当前的 mock 数据聚合逻辑；
-   - `services/report.ts`：接入 `jsPDF` 或自建 serverless API（Puppeteer）输出 PDF。
+   - `services/report.ts`：按需补充 Markdown / CSV 格式的日报导出细节。
 
 ## 推送到 GitHub
 
