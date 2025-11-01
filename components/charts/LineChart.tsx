@@ -16,7 +16,7 @@ export default function LineChart({ title, seriesName, data, color = '#60a5fa' }
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    let chart: Awaited<typeof import('echarts')>['ECharts'] | null = null;
+    let chart: any | null = null;
     let disposed = false;
 
     const loadChart = async () => {

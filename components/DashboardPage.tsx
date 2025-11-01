@@ -35,7 +35,11 @@ export default function DashboardPage() {
           <p style={styles.meta}>提示：支持 Ethereum / Base 链的 EVM 合约或协议地址</p>
         )}
         {error ? <p style={styles.error}>{error}</p> : null}
-        {lastUpdated ? <p style={styles.meta}>最近更新时间：{lastUpdated}</p> : null}
+        {lastUpdated ? (
+          <p style={styles.meta} suppressHydrationWarning>
+            最近更新时间：{lastUpdated}
+          </p>
+        ) : null}
       </section>
 
       <MetricGrid />

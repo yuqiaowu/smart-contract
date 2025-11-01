@@ -2,14 +2,22 @@
 
 import { useDashboardStore } from '@/hooks/useDashboardStore';
 import { formatNumber } from '@/lib/format';
+import type { ActivitySnapshot } from '@/lib/types';
 
-const metricConfigs = [
+type MetricConfig = {
+  key: keyof ActivitySnapshot;
+  label: string;
+  suffix?: string;
+  optional?: boolean;
+};
+
+const metricConfigs: ReadonlyArray<MetricConfig> = [
   { key: 'newAddresses', label: '新增地址' },
   { key: 'activeAddresses', label: '活跃地址' },
   { key: 'retentionRate', label: '留存率', suffix: '%' },
   { key: 'txVolume', label: '交易量 (USD)' },
   { key: 'tvlUsd', label: 'TVL (USD)', optional: true }
-] as const;
+];
 
 export default function MetricGrid() {
   const { snapshot, loading } = useDashboardStore((state) => ({

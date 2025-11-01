@@ -15,7 +15,7 @@ export default function FunnelChart({ data }: Props) {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    let chart: Awaited<typeof import('echarts')>['ECharts'] | null = null;
+    let chart: any | null = null;
     let disposed = false;
 
     const loadChart = async () => {
